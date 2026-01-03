@@ -6,7 +6,7 @@
     
     // 1. OVERRIDE API STATUS CHECK
     window.API_CONFIG = {
-        BASE_URL: 'https://cyber-indonet-api.herokuapp.com',
+        BASE_URL: 'https://jujut1.github.io/spamming-telegram-/',
         ENDPOINTS: {
             SPAM: '/api/spam',
             STATUS: '/api/status',
