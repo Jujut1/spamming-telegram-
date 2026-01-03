@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 CYBER indonet - REAL Telegram Spammer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="cyber-nav">
+        <div class="logo">
+            <i class="fas fa-skull-crossbones"></i>
+            <span>CYBER_INDONET</span>
+            <sup class="badge">REAL SPAM</sup>
+        </div>
+        <div class="nav-links">
+            <a href="#home"><i class="fas fa-home"></i> Home</a>
+            <a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="#logs"><i class="fas fa-history"></i> Logs</a>
+            <a href="#api"><i class="fas fa-code"></i> API</a>
+        </div>
+        <button class="menu-btn"><i class="fas fa-bars"></i></button>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-bolt"></i> TELEGRAM REAL SPAM SYSTEM</h1>
+            <p class="subtitle">Spam langsung ke target dengan backend 100% working</p>
+            <div class="status">
+                <span class="status-indicator active"></span>
+                <span>SYSTEM: <strong>READY</strong></span>
+                <span class="api-status" id="apiStatus">API: Checking...</span>
+            </div>
+        </header>
+
+        <!-- Control Panel -->
+        <section class="control-panel" id="dashboard">
+            <div class="panel-header">
+                <h2><i class="fas fa-terminal"></i> SPAM CONTROL PANEL</h2>
+                <p class="warning-text"><i class="fas fa-exclamation-triangle"></i> REAL SPAM SYSTEM - Gunakan dengan tanggung jawab</p>
+            </div>
+
+            <div class="form-grid">
+                <!-- Left Column -->
+                <div class="form-column">
+                    <div class="input-group">
+                        <label for="botToken"><i class="fas fa-key"></i> BOT TOKEN</label>
+                        <input type="text" id="botToken" placeholder="1234567890:ABCdefGHIjklMNOpqrsTUVwxyz">
+                        <small>Dapatkan dari @BotFather di Telegram</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="chatId"><i class="fas fa-bullseye"></i> TARGET CHAT ID</label>
+                        <input type="text" id="chatId" placeholder="-1001234567890 atau 123456789">
+                        <small>Gunakan tool dibawah untuk mendapatkan Chat ID</small>
+                    </div>
+
+                    <div class="tool-box">
+                        <h4><i class="fas fa-tools"></i> TOOLS</h4>
+                        <button class="tool-btn" onclick="getChatIdTool()">
+                            <i class="fas fa-search"></i> Dapatkan Chat ID
+                        </button>
+                        <button class="tool-btn" onclick="testBotToken()">
+                            <i class="fas fa-vial"></i> Test Bot Token
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="form-column">
+                    <div class="input-group">
+                        <label for="message"><i class="fas fa-comment-alt"></i> PESAN SPAM</label>
+                        <textarea id="message" rows="4">🔥 CYBER INDONET SPAM ATTACK 🔥
+Powered by REAL System</textarea>
+                    </div>
+
+                    <div class="input-group inline-group">
+                        <div>
+                            <label for="count"><i class="fas fa-hashtag"></i> JUMLAH PESAN</label>
+                            <input type="number" id="count" value="100" min="1" max="5000">
+                        </div>
+                        <div>
+                            <label for="delay"><i class="fas fa-clock"></i> DELAY (detik)</label>
+                            <input type="number" id="delay" value="1" min="0.1" max="10" step="0.1">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="mode"><i class="fas fa-cog"></i> MODE SPAM</label>
+                        <select id="mode">
+                            <option value="normal">Normal Spam</option>
+                            <option value="flood">Flood Attack (Fast)</option>
+                            <option value="github">GitHub Actions (Auto)</option>
+                            <option value="vps">VPS Mode (Extreme)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn-primary" onclick="startRealSpam()">
+                    <i class="fas fa-paper-plane"></i> LAUNCH REAL SPAM
+                </button>
+                <button class="btn-secondary" onclick="stopSpam()">
+                    <i class="fas fa-stop-circle"></i> STOP ATTACK
+                </button>
+                <button class="btn-ghost" onclick="downloadScripts()">
+                    <i class="fas fa-download"></i> DOWNLOAD SCRIPTS
+                </button>
+            </div>
+
+            <!-- Progress -->
+            <div class="progress-section">
+                <div class="progress-header">
+                    <span>SPAM PROGRESS</span>
+                    <span id="progressText">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Logs Section -->
+        <section class="logs-section" id="logs">
+            <h3><i class="fas fa-scroll"></i> REAL-TIME LOGS</h3>
+            <div class="logs-container" id="logsContainer">
+                <div class="log-entry system">
+                    <span class="timestamp">[12:00:00]</span>
+                    <span class="log-message">🔥 CYBER INDONET REAL SPAM SYSTEM READY</span>
+                </div>
+                <div class="log-entry info">
+                    <span class="timestamp">[12:00:01]</span>
+                    <span class="log-message">Masukkan token dan target untuk memulai</span>
+                </div>
+            </div>
+            <div class="log-actions">
+                <button onclick="clearLogs()"><i class="fas fa-trash"></i> Clear Logs</button>
+                <button onclick="exportLogs()"><i class="fas fa-file-export"></i> Export Logs</button>
+            </div>
+        </section>
+
+        <!-- API Endpoints -->
+        <section class="api-section" id="api">
+            <h3><i class="fas fa-plug"></i> API ENDPOINTS</h3>
+            <div class="api-grid">
+                <div class="api-card">
+                    <div class="api-header">
+                        <i class="fas fa-server"></i>
+                        <h4>Local API</h4>
+                    </div>
+                    <code>POST /api/spam</code>
+                    <p>Jalankan spam via Python backend</p>
+                    <button class="api-test-btn" onclick="testLocalAPI()">Test Endpoint</button>
+                </div>
+                <div class="api-card">
+                    <div class="api-header">
+                        <i class="fab fa-github"></i>
+                        <h4>GitHub Actions</h4>
+                    </div>
+                    <code>POST /.github/workflows/spam.yml</code>
+                    <p>Automated spam via GitHub</p>
+                    <button class="api-test-btn" onclick="triggerGitHubAction()">Trigger Workflow</button>
+                </div>
+                <div class="api-card">
+                    <div class="api-header">
+                        <i class="fas fa-bolt"></i>
+                        <h4>Direct Script</h4>
+                    </div>
+                    <code>python3 spam.py</code>
+                    <p>Download & run langsung di VPS</p>
+                    <button class="api-test-btn" onclick="downloadPythonScript()">Download Script</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="cyber-footer">
+        <p>🔥 CYBER INDONET REAL SPAM SYSTEM | Only for <span class="boss">PACK LEADER</span></p>
+        <p class="disclaimer">System ini 100% working. Gunakan hanya untuk tujuan edukasi atau testing dengan izin.</p>
+        <div class="footer-links">
+            <a href="#"><i class="fab fa-telegram"></i> Telegram</a>
+            <a href="#"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#"><i class="fas fa-code"></i> API Docs</a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+  </html>
