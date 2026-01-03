@@ -3,7 +3,7 @@
 
 window.API_CONFIG = {
     // Ganti dengan URL backend lu yang udah deploy
-    BASE_URL: 'https://jujut1.github.io/spamming-telegram/',
+    BASE_URL: 'https://jujut1.github.io/spamming-telegram-/',
     
     // Atau pilih salah satu:
     // 'https://cyber-indonet-api.up.railway.app'
