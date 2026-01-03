@@ -1,59 +1,35 @@
-name: 🔥 CYBER INDONET Telegram Spammer
+name: 🚀 CYBER Telegram Spammer
 
 on:
   workflow_dispatch:
     inputs:
-      bot_token:
-        description: 'Bot Token (or use secret)'
-        required: false
-        default: ''
-      chat_id:
-        description: 'Target Chat ID'
+      target_id:
+        description: 'Target Chat/User ID'
         required: true
       message:
-        description: 'Spam Message'
+        description: 'Message to spam'
         required: true
-        default: '🔥 CYBER INDONET SPAM ATTACK 🔥'
       count:
-        description: 'Number of Messages'
-        required: true
-        default: '100'
+        description: 'Number of messages'
+        default: '50'
       delay:
         description: 'Delay between messages (seconds)'
-        required: true
         default: '1'
+
+env:
+  BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
 
 jobs:
   spam-attack:
     runs-on: ubuntu-latest
     steps:
-      - name: 🚀 Start Spam Attack
-        env:
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN || github.event.inputs.bot_token }}
+      - name: 🎯 Start Attack
         run: |
-          if [ -z "$BOT_TOKEN" ]; then
-            echo "❌ ERROR: No bot token provided!"
-            echo "Either set BOT_TOKEN secret or provide via input"
-            exit 1
-          fi
-          
-          echo "🔥 CYBER INDONET REAL SPAM STARTED"
-          echo "=================================="
-          echo "Target Chat ID: ${{ github.event.inputs.chat_id }}"
-          echo "Message Count: ${{ github.event.inputs.count }}"
-          echo "Delay: ${{ github.event.inputs.delay }}s"
-          echo "Bot Token: ${BOT_TOKEN:0:10}..."
-          echo ""
-          
           for i in $(seq 1 ${{ github.event.inputs.count }}); do
-            curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
-              -d "chat_id=${{ github.event.inputs.chat_id }}" \
-              -d "text=${{ github.event.inputs.message }} | CYBER indonet [$i/${{ github.event.inputs.count }}]" \
-              -o /dev/null -w "✅ Sent $i/${{ github.event.inputs.count }}\n"
+            curl -s -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" \
+              -d "chat_id=${{ github.event.inputs.target_id }}" \
+              -d "text=${{ github.event.inputs.message }} | CYBER [$i/${{ github.event.inputs.count }}]"
             
+            echo "✅ Sent $i/${{ github.event.inputs.count }}"
             sleep ${{ github.event.inputs.delay }}
           done
-          
-          echo ""
-          echo "🎯 SPAM ATTACK COMPLETED!"
-          echo "Total messages sent: ${{ github.event.inputs.count }}"
